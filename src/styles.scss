@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ngx-smart-modal/ngx-smart-modal";
+
+app-liste {
+    div {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .mat-card {
+            flex: 1 1 45%;
+            margin: 1%;
+            max-width: 200px;
+        }
+    }
+}

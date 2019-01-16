@@ -1,0 +1,22 @@
+<mat-card class="card-joueur">
+  <mat-card-header>
+    <mat-card-title>{{ joueurSelectionne.firstName }} {{ joueurSelectionne.lastName | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{ joueurSelectionne.poste }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{ joueurSelectionne.image }}" alt="Photo de {{ joueurSelectionne.firstName}} {{ joueurSelectionne.lastName }}">
+  <mat-card-content>
+    <p>
+      Né le {{ joueurSelectionne.birthdayDate | date: "longDate":"":"fr"  }},
+      avec une taille de {{ joueurSelectionne.taille }}, joue au poste de {{ joueurSelectionne.poste }}
+    </p>
+    <p>
+      {{ joueurSelectionne.birthdayDate | age  }} ans.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button type="button" (click)="toggleState();">
+      <span *ngIf="joueurSelectionne.absent; else alreadySelected">Sélectionner pour le prochain match</span>
+      <ng-template #alreadySelected>Noter absent</ng-template>
+    </button>
+  </mat-card-actions>
+</mat-card>

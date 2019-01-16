@@ -1,0 +1,11 @@
+<div>
+  <mat-card *ngFor="let joueur of joueurs" [ngClass]="{'is-absent': joueur.absent}">
+    {{ joueur.firstName }} {{ joueur.lastName }}
+  
+    <button  mat-flat-button color="primary" type="button" (click)="select(joueur)">Afficher les détails</button>
+  </mat-card>
+  
+  <ngx-smart-modal identifier="detailsModal">
+    <app-details [joueurSelectionne]="selected" *ngIf="openDetail" (changeState)="setPresentState($event)"></app-details>
+  </ngx-smart-modal>
+</div>
